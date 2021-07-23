@@ -246,6 +246,7 @@ namespace HRH {
   function buildLevel(): void {
     //Clear all Obstacles
     nodeObstacles.removeAllChildren();
+    nodeGoal.removeAllChildren();
     for (let y: number = 1; y <= allLevels[currentLevel].length; y++) {
       for (let x: number = 1; x <= allLevels[currentLevel][y - 1].length; x++) {
         let value: number = allLevels[currentLevel][y - 1][x - 1];
