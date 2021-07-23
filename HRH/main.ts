@@ -12,7 +12,7 @@ namespace HRH {
 
   //Create Inventory | each tile is 32x32 pixels, World is 7 tiles wide and 18 tiles high
   let nodeInventory: fc.Node = new fc.Node("Inventory");
-  let nodeInventoryBackground: Background = new Background(new fc.Vector2(-3.5, 9), new fc.Vector2(7, 18), "./textures/inventoryBackground.png");
+  let nodeInventoryBackground: Background = new Background(new fc.Vector2(-3.5, 9), new fc.Vector2(7, 18), "./textures/InventoryBackground.png");
   nodeInventory.appendChild(nodeInventoryBackground);
   let nodeLeftTile: LeftTile = new LeftTile();
   nodeInventory.appendChild(nodeLeftTile);
@@ -26,7 +26,7 @@ namespace HRH {
 
   //Create Gameworld | each tile is 32x32 pixels, World is 17 tiles wide and 18 tiles high
   let nodeWorld: fc.Node = new fc.Node("World");
-  let nodeWorldBackground: Background = new Background(new fc.Vector2(8.5, 9), new fc.Vector2(17, 18), "./textures/worldBackground.png");
+  let nodeWorldBackground: Background = new Background(new fc.Vector2(8.5, 9), new fc.Vector2(17, 18), "./textures/WorldBackground.png");
   nodeWorld.appendChild(nodeWorldBackground);
   let nodeWalls: fc.Node = new fc.Node("Walls");
   //Create World Walls Top and Bottom Row
