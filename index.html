@@ -1,13 +1,106 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Hero's Right Hand</title>
-  <link rel="shortcut icon" href="#">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-  <h1>Yeah Boi</h1>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hero's Right Hand</title>
+    <link rel="shortcut icon" href="#">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div>
+      <h1>HRH - Hero's Right Hand</h1>
+      <p>Ein 0-Player Game in Fudge - Abgabe von Alessio Leonardo Vinci im Kurs "Prototyping interaktiver Medienanwendungen" im Sommersemester 2021</p>
+      <ul>
+        <li> <a href="https://alessiovinci.github.io/HRH/HRH">Spiele HRH</a> </li>
+        <li> <a href="https://github.com/AlessioVinci/HRH/tree/main/HRH">Quellcode</a> </li>
+        <li> <a href="https://alessiovinci.github.io/HRH/Designdokument.pdf">Designdokument</a> </li>
+        <li> <a href="https://alessiovinci.github.io/HRH/HRH.zip">Gepacktes Archiv</a> </li>
+        <li>Anleitung (weiter unten sowie im Spiel und Designdokument zu finden) </li>
+      </ul>
+      <h2>Checkliste für den Leistungsnachweis</h2>
+      <p>@ Prof. Dipl.-Ing. Jirka R. Dell'Oro-Friedl, HFU</p>
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align: right">Nr</th>
+            <th>Bezeichnung</th>
+            <th>Inhalt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align: right"> </td>
+            <td>Titel</td>
+            <td>Hero's Right Hand</td>
+          </tr>
+          <tr>
+            <td style="text-align: right"> </td>
+            <td>Name</td>
+            <td>Alessio Leonardo Vinci</td>
+          </tr>
+          <tr>
+            <td style="text-align: right"> </td>
+            <td>Matrikelnummer</td>
+            <td>259364</td>
+          </tr>
+          <tr>
+            <td style="text-align: right">1</td>
+            <td>Nutzerinteraktion</td>
+            <td>Das Spiel wird mit den Tasten “W,A,S,D” oder mit den Pfeiltasten, sowie den Tasten "LSHIFT", "SPACE", "R", "P", "M" gesteuert. "WASD" oder Pfeiltasten bewegen den Cursor. "LSHIFT" und "SPACE" sind zur Interaktion mit den Spieltiles. "R" und "P" setzen das Spiel zurück und starten das Spiel. Während "M" den Soundtrack startet oder pausiert</td>
+          </tr>
+          <tr>
+            <td style="text-align: right">2</td>
+            <td>Objektinteraktion</td>
+            <td>Die Kollisionsabfragen während des Spiels lassen sich in 4 Kategorien aufteilen: <strong>1. Kollision der Hauptfigur mit Wänden</strong>  Hierbei wird die Bewegung der Hauptfigur gestoppt. <strong>2. Kollision der Hauptfigur mit Tiles</strong> Hier wird die Bewegungsrichtung je nach Tile verändert <strong>3. Kollision der Hauptfigur mit Hindernissen</strong> Hierbei wird das Level zurückgesetzt <strong>4. Kollision der Hauptfigur mit dem Ziel:</strong> Hier wird das nächste Level geladen</td>
+          </tr>
+          <tr>
+            <td style="text-align: right">3</td>
+            <td>Objektanzahl variabel</td>
+            <td>Es kann immer nur ein Cursor existieren. Jedoch ist die Menge an platzierbaren Tiles unbegrenzt und auch ein weiterer Hauptcharacter kann für spätere Level hinzugefügt werden</td>
+          </tr>
+          <tr>
+            <td style="text-align: right">4</td>
+            <td>Szenenhierarchie</td>
+            <td>An der Spitze der Szenenhierarchie steht ein Node names “root” in dem alle anderen Nodes gefasst werden. Direkt darunter befindet sich eine nodeInventory und eine nodeWorld um Elemente des Inventars von Elementen aus der Spielwelt trennen zu können. Mehrere Instanzen eines gleichen Objekts werden immer unter einer Schlüsselnode zusammengefasst (Z.B. nodeObstacles mit n vielen Lavatiles)</td>
+          </tr>
+          <tr>
+            <td style="text-align: right">5</td>
+            <td>Sound</td>
+            <td>Es existiert ein Soundtrack der die Grundstimmung erzeugen soll. Zudem wird mit jedem Schritt der Hauptfigur sowie beim Fehlschlagen und Beenden eines Levels ein Soundeffekt abgespielt.</td>
+          </tr>
+          <tr>
+            <td style="text-align: right">6</td>
+            <td>GUI</td>
+            <td>Im Inventar (linker Bereich) kann die zu platzierende Tile gewählt werden</td>
+          </tr>
+          <tr>
+            <td style="text-align: right">7</td>
+            <td>Externe Daten</td>
+            <td>Die Levelstrukter der jeweiligen Level aus einer data.json geladen. Dies sorgt für sehr schnell und leicht erstellbare Level sowie ein sehr leichtes Überarbeiten bereits existierender Level</td>
+          </tr>
+          <tr>
+            <td style="text-align: right">8</td>
+            <td>Verhaltensklassen</td>
+            <td>Die Bewegung und Kollision des Hauptcharakters ist in einzelnen Methoden aufgeteilt. Zudem wird das Zurücksetzen und Laden eines Levels in verschiedenen Funktionen aufgeteilt, die aufeinander aufbauen.</td>
+          </tr>
+          <tr>
+            <td style="text-align: right">9</td>
+            <td>Subklassen</td>
+            <td>Alle verschiedenen Tiles sind Subklassen der Klasse "Tile", welche wiederum eine Subklase der Klasse "QuadNode" ist. Diese ist eine einfache Subklasse der Fudge eigenen Klasse "Node"</td>
+          </tr>
+          <tr>
+            <td style="text-align: right">10</td>
+            <td>Maße &amp; Positionen</td>
+            <td>Die Größen wurden so gewählt, dass jede Tile eine Länge und Höhe von 1 besitzt. Der Nullpunkt wurde so gewählt, dass er sich in der linken unteren Ecke der Spielwelt besitzt. So wird das Erzeugen der Levelstruktur aus der JSON sehr vereinfacht, da aus der JSON nichts ins Inventar (links vom Nullpunkt) geladen wird.</td>
+          </tr>
+          <tr>
+            <td style="text-align: right">11</td>
+            <td>Event-System</td>
+            <td>Das Initialisieren des Spiels wird mittels eines Eventsystems ausgeführt. Die Steuerung hätte ebenfalls mit dem Eventsystem kodiert werden können. Ich habe mich jedoch dagegen entschieden, da Fudge eine bessere Alternative (FudgeCore.Keyboard.isPressedOne()) anbietet.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>  
+  </body>
 </html>
