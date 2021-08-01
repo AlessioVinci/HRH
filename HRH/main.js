@@ -12,7 +12,7 @@ var HRH;
     let soundtrackPlay = false;
     //Create Inventory | each tile is 32x32 pixels, World is 7 tiles wide and 18 tiles high
     let nodeInventory = new fc.Node("Inventory");
-    let nodeInventoryBackground = new HRH.Background(new fc.Vector2(-3.5, 9), new fc.Vector2(7, 18), "./textures/inventoryBackground.png");
+    let nodeInventoryBackground = new HRH.Background(new fc.Vector2(-3.5, 9), new fc.Vector2(7, 18), "./textures/InventoryBackground.png");
     nodeInventory.appendChild(nodeInventoryBackground);
     let nodeLeftTile = new HRH.LeftTile();
     nodeInventory.appendChild(nodeLeftTile);
@@ -25,7 +25,7 @@ var HRH;
     nodeRoot.appendChild(nodeInventory);
     //Create Gameworld | each tile is 32x32 pixels, World is 17 tiles wide and 18 tiles high
     let nodeWorld = new fc.Node("World");
-    let nodeWorldBackground = new HRH.Background(new fc.Vector2(8.5, 9), new fc.Vector2(17, 18), "./textures/worldBackground.png");
+    let nodeWorldBackground = new HRH.Background(new fc.Vector2(8.5, 9), new fc.Vector2(17, 18), "./textures/WorldBackground.png");
     nodeWorld.appendChild(nodeWorldBackground);
     let nodeWalls = new fc.Node("Walls");
     //Create World Walls Top and Bottom Row
@@ -232,6 +232,7 @@ var HRH;
     function buildLevel() {
         //Clear all Obstacles
         nodeObstacles.removeAllChildren();
+        nodeGoal.removeAllChildren();
         for (let y = 1; y <= allLevels[currentLevel].length; y++) {
             for (let x = 1; x <= allLevels[currentLevel][y - 1].length; x++) {
                 let value = allLevels[currentLevel][y - 1][x - 1];
